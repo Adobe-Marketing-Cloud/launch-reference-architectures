@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+
+    <!-- Meta-Information -->
+    <title>Adobe Launch - Angular Demo</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="Adobe Launch - Angular Demo">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Vendor: Bootstrap Stylesheets http://getbootstrap.com -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Our Website CSS Styles -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <script>
+    digitalData = {
+        pageInstanceID: "Angular-Demo-Localhost",
+        page:{
+            pageInfo:{
+                pageID: document.title,
+                pageName: 'angular-demo:'+document.title,
+                destinationURL: encodeURIComponent(window.location.href)
+            },
+            category:{
+                primaryCategory: "Angular Demo - Localhost",
+                subCategory1: "Angular for Launch",
+                pageType: "Basic Demo"
+            },
+            attributes:{
+                project: "Launch"
+            }
+        }
+     };
+    </script>
+    <!--Special Github cookie handling--> 
+    <!--This code is only here because this demo uses shared github hosting. Since github.io is on the Public Suffix list, cookies need to be set explicitly on the subdomain. Usually you would manage targetGlobalSettings in Launch-->
+    <script>
+    window.targetGlobalSettings = { 
+        cookieDomain: 'adobe-marketing-cloud.github.io' //set the mbox cookie explicitly on adobe-marketing-cloud.github.io since github.io does not allow cookies on the root domain
+    };
+    </script>
+    <!--/Special Github cookie handling--> 
+    <script>
+        // CustomEvent Polyfill
+        (function () {
+          if ( typeof window.CustomEvent === "function" ) return false;
+          function CustomEvent ( event, params ) {
+            params = params || { bubbles: false, cancelable: false, detail: undefined };
+            var evt = document.createEvent( 'CustomEvent' );
+            evt.initCustomEvent( event, params.bubbles, params.cancelable, params.detail );
+            return evt;
+           }
+          CustomEvent.prototype = window.Event.prototype;
+          window.CustomEvent = CustomEvent;
+        })();
+    </script>
+    <script src="//assets.adobedtm.com/launch-EN843e9605001f429e9cfed58fa737f5cf.min.js"></script>
+    
+</head>
+<body ng-app="tutorialWebApp">
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Our Website Content Goes Here -->
+<div ng-include='"templates/header.html"'></div>
+<div id="app" ng-view></div>
+<div ng-include='"templates/footer.html"'></div>
+
+<!-- Vendor: Javascripts -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<!-- Vendor: Angular, followed by our custom Javascripts -->
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-route.min.js"></script>
+
+<!-- Our Website Javascripts -->
+<script src="js/main.js"></script>
+<script>_satellite.pageBottom();</script>
+</body>
+</html>
